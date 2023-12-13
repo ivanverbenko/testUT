@@ -1,0 +1,20 @@
+<!-- menu_template.html -->
+
+<!-- menu_template.html -->
+
+{% load menu_tags %}
+
+<nav>
+    <ul>
+        {% for parent, children in hierarchy.items %}
+            <li><a href="{% url 'menu_page' url=parent.url %}">{{ parent.title }}</a></li>
+            {% if children %}
+                <ul>
+                    {% show_sub_menu children %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+
+
